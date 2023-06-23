@@ -36,7 +36,7 @@ body
    margin-right: 0;
    margin-left: 0;
 }
-#LayoutGrid1 > .row > .col-1, #LayoutGrid1 > .row > .col-2
+#LayoutGrid1 > .row > .col-1
 {
    box-sizing: border-box;
    font-size: 0;
@@ -45,7 +45,7 @@ body
    padding-left: 0px;
    position: relative;
 }
-#LayoutGrid1 > .row > .col-1, #LayoutGrid1 > .row > .col-2
+#LayoutGrid1 > .row > .col-1
 {
    float: left;
 }
@@ -57,14 +57,6 @@ body
    border-radius: 0px;
    width: 100%;
    text-align: center;
-}
-#LayoutGrid1 > .row > .col-2
-{
-   background-color: transparent;
-   background-image: none;
-   border: 0px solid #FFFFFF;
-   border-radius: 0px;
-   text-align: left;
 }
 #LayoutGrid1:before,
 #LayoutGrid1:after,
@@ -81,7 +73,7 @@ body
 }
 @media (max-width: 480px)
 {
-#LayoutGrid1 > .row > .col-1, #LayoutGrid1 > .row > .col-2
+#LayoutGrid1 > .row > .col-1
 {
    float: none;
    width: 100% !important;

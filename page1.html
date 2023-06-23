@@ -9,11 +9,6 @@
 <link href="page1.css" rel="stylesheet">
 </head>
 <body>
-<div id="wb_LayoutGrid1">
-<div id="LayoutGrid1">
-<div class="row">
-<div class="col-1">
-<div id="Html1" style="display:inline-block;width:100%;height:106px;z-index:0">
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +24,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var videoPlayer = videojs('videoPlayer');
+            var isSeeking = false;
+            var bufferCounter = 0;
+            var bufferPoints = [1, 2, 3, 4, 5, 7, 8, 9, 10]; // Puntos de búfer manual en segundos
 
             videoPlayer.ready(function() {
                 this.currentTime(0);
@@ -36,8 +34,31 @@
             });
 
             videoPlayer.on('play', function() {
+                if (isSeeking) {
+                    return; // Si se está buscando una posición en el video, no realizar ninguna acción adicional.
+                }
+
                 if (this.paused()) {
                     this.currentTime(0);
+                    this.play();
+                }
+            });
+
+            videoPlayer.on('seeking', function() {
+                isSeeking = true;
+                bufferCounter = 0;
+                this.currentTime(0);
+            });
+
+            videoPlayer.on('seeked', function() {
+                isSeeking = false;
+                bufferCounter = 0;
+                this.play();
+            });
+
+            videoPlayer.on('waiting', function() {
+                if (isSeeking && bufferCounter < bufferPoints.length && this.currentTime() >= bufferPoints[bufferCounter]) {
+                    bufferCounter++;
                     this.play();
                 }
             });
@@ -45,9 +66,12 @@
     </script>
 </body>
 </html>
-</div>
-</div>
-<div class="col-2">
+
+<div id="wb_LayoutGrid1">
+<div id="LayoutGrid1">
+<div class="row">
+<div class="col-1">
+
 </div>
 </div>
 </div>
