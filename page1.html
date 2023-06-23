@@ -13,34 +13,41 @@
 <div id="LayoutGrid1">
 <div class="row">
 <div class="col-1">
-<div id="Html1" style="display:inline-block;width:365px;height:193px;z-index:0">
+<div id="Html1" style="display:inline-block;width:100%;height:106px;z-index:0">
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reiniciar Video</title>
+    <title>Reiniciar Video con Video.js</title>
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.15.0/video-js.css">
 </head>
 <body>
-   <video preload="none" controls="" controlslist="nodownload" src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=26eae9d9a2e1323ba7c3ca58d87335385201b71c&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687656893013&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=1596&amp;__dp=y&amp;__dp=y" poster="https://i.mycdn.me/videoPreview?id=4694536817405&amp;type=32&amp;idx=11&amp;tkn=go9LEC4ffbwnO988q9a0TYFhLIw&amp;fn=external_8" class="vdo vpl fll"></video>
+    <video id="videoPlayer" class="video-js vjs-default-skin" controls>
+        <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" type="application/x-mpegURL">
+    </video>
 
+    <script src="https://vjs.zencdn.net/7.15.0/video.js"></script>
     <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            var videoPlayer = document.getElementById('videoPlayer');
+        document.addEventListener('DOMContentLoaded', function() {
+            var videoPlayer = videojs('videoPlayer');
 
-            videoPlayer.addEventListener('loadedmetadata', function() {
-                videoPlayer.currentTime = 0;
-                videoPlayer.play();
+            videoPlayer.ready(function() {
+                this.currentTime(0);
+                this.play();
             });
 
-            videoPlayer.addEventListener('play', function() {
-                if (videoPlayer.paused) {
-                    videoPlayer.currentTime = 0;
-                    videoPlayer.play();
+            videoPlayer.on('play', function() {
+                if (this.paused()) {
+                    this.currentTime(0);
+                    this.play();
                 }
             });
         });
     </script>
 </body>
-</html></div>
+</html>
+</div>
+</div>
+<div class="col-2">
 </div>
 </div>
 </div>
