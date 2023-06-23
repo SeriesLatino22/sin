@@ -34,7 +34,10 @@
 <h3 class="title">Capitulo 1x1</h3></div></div>
 <div class="video-list">
 <div class="vid active"> 
-<video src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002017994488156201/yXggMemopUDHwPgmi6X9Wh2BQra.jpg"></video>
+<video controls muted autoplay poster="https://media.discordapp.net/attachments/1000156875129634857/1002018284067102811/dcPc6esbABSljhnPuYxw7qJzhzq.jpg">
+  <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" type="application/x-mpegURL">
+</video>
+
 <h3 class="title">Capitulo 1x1</h3></div>
 <div class="vid">
 <video src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=67bf7ba31566792a38cc52f49e45804bb11a8e55&amp;st.mq=5&amp;st.mvid=5467125451269&amp;st.ip=186.30.7.42&amp;st.dla=off&amp;st.exp=1687675670480&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=533" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002017994488156201/yXggMemopUDHwPgmi6X9Wh2BQra.jpg"></video>
@@ -73,6 +76,7 @@ listVideo.forEach(video =>{
 <script>//<![CDATA[
 const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
 //]]></script>
+
 </body>
 </html>
 </div>
