@@ -1,64 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Page</title>
+<meta name="generator" content="WYSIWYG Web Builder 18 - https://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="SeriesLatino2.css" rel="stylesheet">
+<link href="ladyt1.css" rel="stylesheet">
+<script src="bootstrap.min.js"></script>
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {$('#preloader').remove();}
+});
+$(window).on('load', function()
+{
+   $('#preloader').remove();
+});
+</script>
+<meta name="referrer" content="never" /><script type='text/javascript' src='//pl19796401.highrevenuegate.com/bd/f5/a3/bdf5a3e139a53757a041c0039da4ea6b.js'></script>
+
+</head>
+<body>
+<div id="wb_LayoutGrid1">
+<div id="LayoutGrid1">
+<div class="col-1">
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Abrir página en un popup con proxy</title>
-    <style>
-        .popup-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-        }
-
-        .popup-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            width: 80%;
-            max-width: 800px;
-            height: 80%;
-            max-height: 600px;
-            overflow: auto;
-        }
-        
-        #open-button {
-            padding: 10px;
-        }
-    </style>
+    <title>Reiniciar Video</title>
 </head>
 <body>
-    <button id="open-button">Abrir página</button>
-
-    <div class="popup-container" id="popup-container">
-        <div class="popup-content">
-            <button id="close-button">Cerrar</button>
-            <iframe id="page-frame" src="" frameborder="0" width="100%" height="100%"></iframe>
-        </div>
-    </div>
+    <video id="videoPlayer" src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" controls></video>
 
     <script>
-        document.getElementById("open-button").addEventListener("click", function() {
-            var pageLink = "https://m.ok.ru/video/5296999959293?__dp=y";
-            var proxyUrl = "https://cors-anywhere.herokuapp.com/" + pageLink;
-            var popupContainer = document.getElementById("popup-container");
-            var pageFrame = document.getElementById("page-frame");
-            pageFrame.src = proxyUrl;
-            popupContainer.style.display = "block";
-        });
+        window.addEventListener('DOMContentLoaded', function() {
+            var videoPlayer = document.getElementById('videoPlayer');
 
-        document.getElementById("close-button").addEventListener("click", function() {
-            var popupContainer = document.getElementById("popup-container");
-            var pageFrame = document.getElementById("page-frame");
-            pageFrame.src = "";
-            popupContainer.style.display = "none";
+            videoPlayer.addEventListener('loadedmetadata', function() {
+                videoPlayer.currentTime = 0;
+                videoPlayer.play();
+            });
+
+            videoPlayer.addEventListener('play', function() {
+                if (videoPlayer.paused) {
+                    videoPlayer.currentTime = 0;
+                    videoPlayer.play();
+                }
+            });
         });
     </script>
+</body>
+</html>
+</div>
+</div>
+</div>
+
+
+<div id="wb_LayoutGrid2">
+<div id="LayoutGrid2">
+<div class="row">
+<div class="col-1">
+<div id="wb_pronmnb" style="display:flex;width:calc(100% - 10px);z-index:1;" class="card">
+   <div id="pronmnb-card-header" class="collapsed" aria-expanded="false" data-bs-toggle="collapse" href="#pronmnb-card-body">Preguntas Frecuentes<svg class="icon-collapsed" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M54 28 L54 34 C54 35, 54 36, 53 36 C53 37, 52 37, 51 37 L37 37 L37 51 C37 52, 37 53, 36 53 C35 54, 35 54, 34 54 L27 54 C26 54, 26 54, 25 53 C24 53, 24 52, 24 51 L24 37 L10 37 C9 37, 9 37, 8 36 C7 36, 7 35, 7 34 L7 28 C7 27, 7 26, 8 25 C9 25, 9 24, 10 24 L24 24 L24 10 C24 10, 24 9, 25 8 C26 8, 26 7, 27 7 L34 7 C35 7, 35 8, 36 8 C37 9, 37 10, 37 10 L37 24 L51 24 C52 24, 53 25, 53 25 C54 26, 54 27, 54 28"/>
+</svg>
+<svg class="icon-expanded" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M54 28 L54 34 C54 35, 54 36, 53 36 C53 37, 52 37, 51 37 L10 37 C9 37, 9 37, 8 36 C7 36, 7 35, 7 34 L7 28 C7 27, 7 26, 8 25 C9 25, 9 24, 10 24 L51 24 C52 24, 53 25, 53 25 C54 26, 54 27, 54 28"/>
+</svg>
+</div>
+   <div id="pronmnb-card-body" class="collapse" data-bs-parent="#wb_pronmnb">
+      <div id="pronmnb-card-item1"></div>
+      <hr id="pronmnb-card-item2">
+      <div id="pronmnb-card-item3"><br><br>En la opción 1 debes darle varias veces al botón de Play hasta que inicie a cargar.<br><br><br><br><br>¿Demora mucho en cargar?<br><br>La velocidad de reproducción dependerá de tu velocidad de internet. <br><br><br><br>¿Se queda en negro, no reproduce?<br><br>Cierra y abre el reproductor, así lo soluciona fácil.<br><br><br><br><br><br>Si algún capítulo deja de funcionar nos puedes informar por Telegram, Facebook, YouTube y demás redes sociales que están en el botón de la esquina derecha.</div>
+      <div id="pronmnb-card-item4"></div>
+      <div id="pronmnb-card-item5"><br><br><br>El botón "Visto" y "No visto" debe ser agregado manualmente, Al ser una aplicación libre sin registro ni base de datos. Al borrar los datos de la aplicación o desinstalar la app y volverla a instalar, podría borrar tus capitulos vistos y no vistos guardados.</div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="Html4" style="position:absolute;left:243px;top:1028px;width:293px;height:118px;z-index:6">
+<div id="blocker">
+  <div id="container">
+    <button id="unlockButton"><i class="fas fa-lock"></i> Desbloquear contenido</button>
+    <div id="message">Debes darle 3 veces al botón</div>
+    <div id="adMessage">Se abrirá publicidad, solo ciérrala, ¡Gracias!</div>
+  </div>
+</div>
+
+
+<script>
+  var unlockButton = document.getElementById("unlockButton");
+  var message = document.getElementById("message");
+  var adMessage = document.getElementById("adMessage");
+  var clickCount = 0;
+  var urls = [
+    "https://www.highrevenuegate.com/gr68y57qs2?key=a12e88d2a2a8205d6611e540ddf0ae52",
+    "https://www.highrevenuegate.com/gr68y57qs2?key=a12e88d2a2a8205d6611e540ddf0ae52",
+    "https://www.highrevenuegate.com/gr68y57qs2?key=a12e88d2a2a8205d6611e540ddf0ae52"
+  ];
+
+  unlockButton.addEventListener("click", function() {
+    clickCount++;
+    if (clickCount <= urls.length) {
+      window.open(urls[clickCount - 1], "_blank");
+      if (clickCount < urls.length) {
+        message.textContent = "Debes darle " + (urls.length - clickCount) + " veces más al botón";
+      } else {
+        message.textContent = "Se abrieron todas las páginas. ¡Cerrando todo!";
+        adMessage.style.display = "none";
+        document.getElementById("blocker").style.display = "none";
+      }
+    }
+  });
+</script>
+</div>
+
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            var disclaimer = document.querySelector("img[alt='www.000webhost.com']");
+            if(disclaimer) {
+                disclaimer.remove();
+            }
+        });
+    </script><div id="preloader"></div>
 </body>
 </html>
