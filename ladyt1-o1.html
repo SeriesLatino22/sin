@@ -30,25 +30,31 @@
   </div>
 
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
   <script>
-    // Inicializar Video.js para el video principal
-    const mainVideo = videojs('main-video');
+    // Configurar el reproductor principal
+    const mainVideo = videojs('main-video', {
+      plugins: {
+        contribHls: {
+          // Habilitar la carga previa (preloading)
+          withCredentials: true,
+          // Cantidad de segmentos a descargar por adelante y por detrás del tiempo actual
+          forwardSegmentCount: 10,
+          backSegmentCount: 10
+        }
+      }
+    });
 
-    // Evento que se dispara al cambiar de video en la lista
+    // Manejar el evento de cambio de video en la lista
     const listVideos = document.querySelectorAll('.video-list .vid');
     listVideos.forEach(video => {
       video.addEventListener('click', function() {
-        // Obtener la URL del video seleccionado
         const src = this.querySelector('video').getAttribute('src');
-        // Obtener el título del video seleccionado
         const title = this.querySelector('.title').innerHTML;
-        // Cambiar la fuente y el título del video principal
         mainVideo.src(src);
         mainVideo.poster('');
         mainVideo.title(title);
-        // Reiniciar el tiempo de reproducción del video principal
         mainVideo.currentTime(0);
-        // Reiniciar la clase activa en los videos de la lista
         listVideos.forEach(video => {
           video.classList.remove('active');
         });
