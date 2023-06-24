@@ -70,11 +70,20 @@ function loadCurrentTime() {
   }
 }
 
-// Evento que se dispara cuando el video se pausa
-mainVideo.addEventListener('pause', saveCurrentTime);
-
 // Evento que se dispara cuando el video termina de cargar
-mainVideo.addEventListener('loadedmetadata', loadCurrentTime);
+mainVideo.addEventListener('loadedmetadata', () => {
+  loadCurrentTime();
+
+  // Reiniciar la posición guardada del video al cambiar de video
+  listVideo.forEach(video => {
+    video.addEventListener('click', () => {
+      saveCurrentTime();
+    });
+  });
+});
+
+// Actualizar la posición actual del video en el almacenamiento local
+mainVideo.addEventListener('timeupdate', saveCurrentTime);
 
 // Evento de click en los videos de la lista
 listVideo.forEach(video => {
@@ -85,14 +94,11 @@ listVideo.forEach(video => {
     mainVideo.src = src;
     const text = this.querySelector('.title').innerHTML;
     document.querySelector('.main-video .title').innerHTML = text;
-
-    // Reiniciar la posición guardada del video al cambiar de video
-    saveCurrentTime();
   });
 });
 
 // Inicializar el reproductor Plyr
-const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
+const player = new Plyr(mainVideo);
 
   
 </script>
