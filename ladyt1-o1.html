@@ -2,72 +2,98 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Video Playlist con Flowplayer</title>
-  <script src="https://releases.flowplayer.org/7.2.7/flowplayer.min.js"></script>
-  <link rel="stylesheet" href="https://releases.flowplayer.org/7.2.7/skin/skin.css">
+  <title>Video Playlist MOD Xavier Suarez</title>
+  <!-- Responsive viewport -->
+  <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxx" crossorigin="anonymous" />
+  <style>
+    /* Estilos personalizados */
+    .container {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+    .video-list {
+      display: flex;
+      flex-direction: row;
+    }
+    .vid {
+      margin-right: 10px;
+    }
+    .vid.active {
+      border: 2px solid blue;
+    }
+    .title {
+      text-align: center;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
-  <div id="main-video" class="main-video">
-    <div class="flowplayer" data-swf="https://releases.flowplayer.org/7.2.7/flowplayer.swf">
-      <video controls muted autoplay>
-        <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" type="application/x-mpegURL">
-      </video>
+  <div class="container">
+    <div class="main-video">
+      <div class="video">
+        <video class='js-player plyr' poster="https://media.discordapp.net/attachments/1000156875129634857/1002018284067102811/dcPc6esbABSljhnPuYxw7qJzhzq.jpg" controls muted autoplay>
+          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" type="application/x-mpegURL">
+        </video>
+        <h3 class="title">Capitulo 1x1</h3>
+      </div>
     </div>
-    <h3 class="title">Capitulo 1x1</h3>
+    <div class="video-list">
+      <div class="vid active">
+        <video src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=447748df7249d68372089d3f8c2c750b73b7235b&amp;st.mq=5&amp;st.mvid=5467125451269&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=4040" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002017994488156201/yXggMemopUDHwPgmi6X9Wh2BQra.jpg"></video>
+        <h3 class="title">Capitulo 1</h3>
+      </div>
+      <div class="vid active">
+        <video src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=79fd9eacdd24a03233fb0806b725b4138a71b13f&amp;st.mq=4&amp;st.mvid=5637168789085&amp;st.ip=186.31.192.106&amp;st.dla=on&amp;st.exp=1687584411089&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7356" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002018233425326081/c9CDZc8ZrI8x3z0ys8ObHLeB2Mo.jpg"></video>
+        <h3 class="title">Capitulo 2</h3>
+      </div>
+    </div>
   </div>
 
-  <div class="video-list">
-    <div class="vid active">
-      <div class="flowplayer" data-swf="https://releases.flowplayer.org/7.2.7/flowplayer.swf">
-        <video>
-          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=447748df7249d68372089d3f8c2c750b73b7235b&amp;st.mq=5&amp;st.mvid=5467125451269&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=4040" type="application/x-mpegURL">
-        </video>
-      </div>
-      <h3 class="title">Capitulo 1</h3>
-    </div>
-    <div class="vid active">
-      <div class="flowplayer" data-swf="https://releases.flowplayer.org/7.2.7/flowplayer.swf">
-        <video>
-          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=2fa655a1ed5107abef4db7167c4c1a1ad6f15277&amp;st.mq=5&amp;st.mvid=5467125778949&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756069810&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=9416" type="application/x-mpegURL">
-        </video>
-      </div>
-      <h3 class="title">Capitulo 2</h3>
-    </div>
-  </div>
-</div>
+  <script src="https://cdn.plyr.io/3.6.12/plyr.min.js"></script>
+  <script>
+    // Obtener referencias a los elementos del reproductor de video
+    const mainVideo = document.querySelector('.main-video video');
+    const listVideo = document.querySelectorAll('.video-list .vid');
 
-<script>
-  // Obtener referencias a los elementos del DOM
-  var mainVideo = document.getElementById('main-video');
-  var videoList = document.querySelector('.video-list');
+    // Función para guardar la posición actual del video en el almacenamiento local
+    function saveCurrentTime() {
+      localStorage.setItem('videoCurrentTime', mainVideo.currentTime);
+    }
 
-  // Agregar controladores de eventos a los elementos de la lista de videos
-  var videos = videoList.querySelectorAll('.vid');
-  videos.forEach(function(video) {
-    video.addEventListener('click', function() {
-      var source = this.querySelector('source').src;
-      var title = this.querySelector('.title').textContent;
+    // Función para cargar la posición guardada del video desde el almacenamiento local
+    function loadCurrentTime() {
+      const currentTime = localStorage.getItem('videoCurrentTime');
+      if (currentTime) {
+        mainVideo.currentTime = parseFloat(currentTime);
+      }
+    }
 
-      // Actualizar el video principal y su título
-      mainVideo.querySelector('source').src = source;
-      mainVideo.querySelector('.title').textContent = title;
+    // Evento que se dispara cuando el video se pausa
+    mainVideo.addEventListener('pause', saveCurrentTime);
 
-      // Reiniciar el reproductor de Flowplayer para el video principal
-      flowplayer(mainVideo.querySelector('.flowplayer'), {
-        autoplay: true,
-        muted: true
+    // Evento que se dispara cuando el video termina de cargar
+    mainVideo.addEventListener('loadedmetadata', loadCurrentTime);
+
+    // Evento de click en los videos de la lista
+    listVideo.forEach(video => {
+      video.addEventListener('click', function() {
+        listVideo.forEach(vid => vid.classList.remove('active'));
+        this.classList.add('active');
+        const src = this.querySelector('video').getAttribute('src');
+        mainVideo.src = src;
+        const text = this.querySelector('.title').innerHTML;
+        document.querySelector('.main-video .title').innerHTML = text;
+        mainVideo.load(); // Cargar el nuevo video
+        mainVideo.play(); // Reproducir el nuevo video automáticamente
       });
     });
-  });
 
-  // Inicializar el reproductor de Flowplayer para el video principal
-  flowplayer(mainVideo.querySelector('.flowplayer'), {
-    autoplay: true,
-    muted: true
-  });
-</script>
-
+    // Inicializar el reproductor Plyr
+    const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
+  </script>
 </body>
 </html>
