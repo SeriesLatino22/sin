@@ -53,86 +53,48 @@ cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&a
 <script src="https://cdn.plyr.io/3.6.12/plyr.min.js"></script>
 <script>
 
-  // Obtener referencias a los elementos relevantes
-const scrollButton = document.getElementById('scroll-button');
-const videoList = document.querySelector('.video-list');
+    // Obtener referencias a los elementos del reproductor de video
+const mainVideo = document.querySelector('.main-video video');
+const listVideo = document.querySelectorAll('.video-list .vid');
 
-// Función para desplazarse hasta el final de la lista de capítulos
-function scrollToBottom() {
-  const lastVideo = videoList.lastElementChild;
-  lastVideo.scrollIntoView({ behavior: 'smooth' });
+// Función para guardar la posición actual del video en el almacenamiento local
+function saveCurrentTime() {
+  localStorage.setItem('videoCurrentTime', mainVideo.currentTime);
 }
 
-// Función para desplazarse hasta la parte superior de la lista de capítulos
-function scrollToTop() {
-  videoList.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Actualizar el botón y su estilo cuando se desplaza la lista de videos
-function updateScrollButton() {
-  const isScrolledToBottom = videoList.scrollHeight - videoList.scrollTop === videoList.clientHeight;
-  if (isScrolledToBottom) {
-    scrollButton.classList.add('up');
-  } else {
-    scrollButton.classList.remove('up');
+// Función para cargar la posición guardada del video desde el almacenamiento local
+function loadCurrentTime() {
+  const currentTime = localStorage.getItem('videoCurrentTime');
+  if (currentTime) {
+    mainVideo.currentTime = parseFloat(currentTime);
   }
 }
 
-// Agregar eventos de clic al botón de desplazamiento
-scrollButton.addEventListener('click', () => {
-  if (scrollButton.classList.contains('up')) {
-    scrollToTop();
-  } else {
-    scrollToBottom();
-  }
+// Evento que se dispara cuando el video se pausa
+mainVideo.addEventListener('pause', saveCurrentTime);
+
+// Evento que se dispara cuando el video termina de cargar
+mainVideo.addEventListener('loadedmetadata', loadCurrentTime);
+
+// Evento de click en los videos de la lista
+listVideo.forEach(video => {
+  video.addEventListener('click', function() {
+    listVideo.forEach(vid => vid.classList.remove('active'));
+    this.classList.add('active');
+    const src = this.querySelector('video').getAttribute('src');
+    mainVideo.src = src;
+    const text = this.querySelector('.title').innerHTML;
+    document.querySelector('.main-video .title').innerHTML = text;
+
+    // Reiniciar la posición guardada del video al cambiar de video
+    saveCurrentTime();
+  });
 });
 
-// Agregar evento de desplazamiento a la lista de videos
-videoList.addEventListener('scroll', updateScrollButton);
+// Inicializar el reproductor Plyr
+const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
 
-// Actualizar el botón y su estilo al cargar la página
-updateScrollButton();
-
-
-
-
-  // Obtener referencias a los elementos del reproductor de video
-  const mainVideo = document.querySelector('.main-video video');
-  const listVideo = document.querySelectorAll('.video-list .vid');
-
-  // Función para guardar la posición actual del video en el almacenamiento local
-  function saveCurrentTime() {
-    localStorage.setItem('videoCurrentTime', mainVideo.currentTime);
-  }
-
-  // Función para cargar la posición guardada del video desde el almacenamiento local
-  function loadCurrentTime() {
-    const currentTime = localStorage.getItem('videoCurrentTime');
-    if (currentTime) {
-      mainVideo.currentTime = parseFloat(currentTime);
-    }
-  }
-
-  // Evento que se dispara cuando el video se pausa
-  mainVideo.addEventListener('pause', saveCurrentTime);
-
-  // Evento que se dispara cuando el video termina de cargar
-  mainVideo.addEventListener('loadedmetadata', loadCurrentTime);
-
-  // Evento de click en los videos de la lista
-  listVideo.forEach(video => {
-    video.addEventListener('click', function() {
-      listVideo.forEach(vid => vid.classList.remove('active'));
-      this.classList.add('active');
-      const src = this.querySelector('video').getAttribute('src');
-      mainVideo.src = src;
-      const text = this.querySelector('.title').innerHTML;
-      document.querySelector('.main-video .title').innerHTML = text;
-    });
-  });
-
-  // Inicializar el reproductor Plyr
-  const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
+  
 </script>
 </body>
 </html>
