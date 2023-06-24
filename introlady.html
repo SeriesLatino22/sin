@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Page</title>
+<meta name="generator" content="WYSIWYG Web Builder 18 - https://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="SeriesLatino2.css" rel="stylesheet">
+<link href="introlady.css" rel="stylesheet">
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {$('#preloader').remove();}
+});
+$(window).on('load', function()
+{
+   $('#preloader').remove();
+});
+</script>
+<script type='text/javascript' src='//pl19796401.highrevenuegate.com/bd/f5/a3/bdf5a3e139a53757a041c0039da4ea6b.js'></script>
+
+</head>
+<body>
+<div id="wb_LayoutGrid1">
+<div id="LayoutGrid1">
+<div class="row">
+<div class="col-1">
+<a id="Button1" href="./ladyt1-o1.html" style="display:inline-block;width:221px;height:56px;z-index:0;">Temporada 1 op 1</a>
+</div>
+</div>
+</div>
+</div>
+<div id="Html4" style="position:absolute;left:339px;top:188px;width:293px;height:118px;z-index:2">
+<div id="blocker">
+  <div id="container">
+    <button id="unlockButton"><i class="fas fa-lock"></i> Desbloquear contenido</button>
+    <div id="message">Debes darle 3 veces al botón</div>
+    <div id="adMessage">Se abrirá publicidad, solo ciérrala, ¡Gracias!</div>
+  </div>
+</div>
+
+
+<script>
+  var unlockButton = document.getElementById("unlockButton");
+  var message = document.getElementById("message");
+  var adMessage = document.getElementById("adMessage");
+  var clickCount = 0;
+  var urls = [
+    "https://www.highrevenuegate.com/gr68y57qs2?key=a12e88d2a2a8205d6611e540ddf0ae52",
+    "https://www.highrevenuegate.com/gr68y57qs2?key=a12e88d2a2a8205d6611e540ddf0ae52",
+    "https://www.highrevenuegate.com/gr68y57qs2?key=a12e88d2a2a8205d6611e540ddf0ae52"
+  ];
+
+  unlockButton.addEventListener("click", function() {
+    clickCount++;
+    if (clickCount <= urls.length) {
+      window.open(urls[clickCount - 1], "_blank");
+      if (clickCount < urls.length) {
+        message.textContent = "Debes darle " + (urls.length - clickCount) + " veces más al botón";
+      } else {
+        message.textContent = "Se abrieron todas las páginas. ¡Cerrando todo!";
+        adMessage.style.display = "none";
+        document.getElementById("blocker").style.display = "none";
+      }
+    }
+  });
+</script>
+</div>
+
+<div id="preloader"></div>
+</body>
+</html>
