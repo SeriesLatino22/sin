@@ -1,76 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Video Playlist MOD Xavier Suarez</title>
-<!-- Responsive viewport -->
-<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
-<link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxx" crossorigin="anonymous" />
-<link href="ladyt1-o1.css" rel="stylesheet">
-<!-- JW Player CDN -->
-<script src="https://cdn.jwplayer.com/libraries/Z6gj1tYi.js"></script>
+  <meta charset="UTF-8">
+  <title>Video Playlist con Flowplayer</title>
+  <script src="https://releases.flowplayer.org/7.2.7/flowplayer.min.js"></script>
+  <link rel="stylesheet" href="https://releases.flowplayer.org/7.2.7/skin/skin.css">
 </head>
 <body>
 
-<div class="scroll-button" id="scroll-button">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1DCheRLhxDOU0Sie97vrJsc51LTLNJxKz-MhA-jVCRI_d8jsofkIenFjSDW7D8d5EvKU&usqp=CAU" alt="Flecha hacia abajo">
+<div class="container">
+  <div id="main-video" class="main-video">
+    <div class="flowplayer" data-swf="https://releases.flowplayer.org/7.2.7/flowplayer.swf">
+      <video controls muted autoplay>
+        <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" type="application/x-mpegURL">
+      </video>
+    </div>
+    <h3 class="title">Capitulo 1x1</h3>
   </div>
 
-<div class="container">
-<div class="main-video">
-<div class="video">
-  <div id="jwplayer"></div>
-<h3 class="title">Capitulo 1x1</h3></div></div>
-<div class="video-list">
-<div class="vid active"> 
-<div id="jwplayer2"></div>
-<h3 class="title">Capitulo 1</h3></div>
-<div class="vid active"> 
-<div id="jwplayer3"></div>
-<h3 class="title">Capitulo 2</h3></div>
-</div></div>
+  <div class="video-list">
+    <div class="vid active">
+      <div class="flowplayer" data-swf="https://releases.flowplayer.org/7.2.7/flowplayer.swf">
+        <video>
+          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=447748df7249d68372089d3f8c2c750b73b7235b&amp;st.mq=5&amp;st.mvid=5467125451269&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=4040" type="application/x-mpegURL">
+        </video>
+      </div>
+      <h3 class="title">Capitulo 1</h3>
+    </div>
+    <div class="vid active">
+      <div class="flowplayer" data-swf="https://releases.flowplayer.org/7.2.7/flowplayer.swf">
+        <video>
+          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=2fa655a1ed5107abef4db7167c4c1a1ad6f15277&amp;st.mq=5&amp;st.mvid=5467125778949&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756069810&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=9416" type="application/x-mpegURL">
+        </video>
+      </div>
+      <h3 class="title">Capitulo 2</h3>
+    </div>
+  </div>
+</div>
 
 <script>
+  // Obtener referencias a los elementos del DOM
+  var mainVideo = document.getElementById('main-video');
+  var videoList = document.querySelector('.video-list');
 
-  // Obtener referencias a los elementos del reproductor de video
-  const mainVideoElement = document.querySelector('.main-video');
-  const listVideoElements = document.querySelectorAll('.video-list .vid');
+  // Agregar controladores de eventos a los elementos de la lista de videos
+  var videos = videoList.querySelectorAll('.vid');
+  videos.forEach(function(video) {
+    video.addEventListener('click', function() {
+      var source = this.querySelector('source').src;
+      var title = this.querySelector('.title').textContent;
 
-  // Función para cargar un video en el reproductor JW Player
-  function loadJWPlayer(videoElementId, videoSource) {
-    jwplayer(videoElementId).setup({
-      file: videoSource,
-      width: '100%',
-      aspectratio: '16:9',
-      autostart: false,
-      controls: true,
-      mute: true,
-      advertising: {
-        client: 'vast',
-        tag: 'https://www.example.com/vast.xml'
-      }
-    });
-  }
+      // Actualizar el video principal y su título
+      mainVideo.querySelector('source').src = source;
+      mainVideo.querySelector('.title').textContent = title;
 
-  // Evento de click en los videos de la lista
-  listVideoElements.forEach((videoElement, index) => {
-    videoElement.addEventListener('click', function() {
-      listVideoElements.forEach((vid) => vid.classList.remove('active'));
-      this.classList.add('active');
-      const videoSource = this.querySelector('video').getAttribute('src');
-      const videoElementId = 'jwplayer' + (index + 1);
-      mainVideoElement.querySelector('.title').innerHTML = this.querySelector('.title').innerHTML;
-      mainVideoElement.querySelector('.title').scrollIntoView({ behavior: 'smooth' });
-      loadJWPlayer(videoElementId, videoSource);
+      // Reiniciar el reproductor de Flowplayer para el video principal
+      flowplayer(mainVideo.querySelector('.flowplayer'), {
+        autoplay: true,
+        muted: true
+      });
     });
   });
 
-  // Cargar el primer video en el reproductor principal al cargar la página
-  const firstVideoSource = listVideoElements[0].querySelector('video').getAttribute('src');
-  const firstVideoElementId = 'jwplayer';
-  mainVideoElement.querySelector('.title').innerHTML = listVideoElements[0].querySelector('.title').innerHTML;
-  loadJWPlayer(firstVideoElementId, firstVideoSource);
+  // Inicializar el reproductor de Flowplayer para el video principal
+  flowplayer(mainVideo.querySelector('.flowplayer'), {
+    autoplay: true,
+    muted: true
+  });
 </script>
 
 </body>
