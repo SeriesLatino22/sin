@@ -7,6 +7,7 @@
   <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxx" crossorigin="anonymous" />
+  <link href="https://vjs.zencdn.net/7.14.3/video-js.min.css" rel="stylesheet">
   <style type="text/css">
 *{margin:0;padding:0;box-sizing:border-box;text-transform:capitalize;}
 body{background:#000;}
@@ -71,7 +72,7 @@ color:#333;font-size:17px;}
   <div class="container">
     <div class="main-video">
       <div class="video">
-        <video class="js-player" poster="https://media.discordapp.net/attachments/1000156875129634857/1002018284067102811/dcPc6esbABSljhnPuYxw7qJzhzq.jpg" controls muted autoplay> 
+        <video id="main-video" class="video-js vjs-default-skin vjs-big-play-centered" poster="https://media.discordapp.net/attachments/1000156875129634857/1002018284067102811/dcPc6esbABSljhnPuYxw7qJzhzq.jpg" controls autoplay muted>
           <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" type="application/x-mpegURL">
         </video>
         <h3 class="title">Capitulo 1x1</h3>
@@ -79,52 +80,103 @@ color:#333;font-size:17px;}
     </div>
     <div class="video-list">
       <div class="vid active">
-        <video src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=447748df7249d68372089d3f8c2c750b73b7235b&amp;st.mq=5&amp;st.mvid=5467125451269&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=4040" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002017994488156201/yXggMemopUDHwPgmi6X9Wh2BQra.jpg"></video>
-        <h3 class="title">Capitulo 1</h3>
+        <video class="video-js vjs-default-skin" id="video-1" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002017994488156201/yXggMemopUDHwPgmi6X9Wh2BQra.jpg">
+          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=447748df7249d68372089d3f8c2c750b73b7235b&amp;st.mq=5&amp;st.mvid=5467125451269&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7981" type="application/x-mpegURL">
+        </video>
+        <h3>Capitulo 1x2</h3>
+      </div>
+      <div class="vid">
+        <video class="video-js vjs-default-skin" id="video-2" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002018022783261691/Z3n0p12GlBFCW1QR8a2NjYri1b.jpg">
+          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=44b32e7790d7e37fb7856690b12d503d93ab6ed9&amp;st.mq=2&amp;st.mvid=5452283091933&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7981" type="application/x-mpegURL">
+        </video>
+        <h3>Capitulo 1x3</h3>
+      </div>
+      <div class="vid">
+        <video class="video-js vjs-default-skin" id="video-3" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002018116322639873/IZdajxQWJk6iwBlE9RlLWURUrb0.jpg">
+          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=204fe6f3efb4225c29c3f4a3bc9e42e9eac4a61e&amp;st.mq=2&amp;st.mvid=5236305547389&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7981" type="application/x-mpegURL">
+        </video>
+        <h3>Capitulo 1x4</h3>
       </div>
     </div>
   </div>
 
-  <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+  <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const mainVideo = document.querySelector('.js-player');
-      const listVideo = document.querySelectorAll('.video-list .vid video');
+      const mainVideo = videojs('main-video');
+      const listVideos = document.querySelectorAll('.video-list .vid video');
 
-      // Configuración del reproductor Plyr
-      const player = new Plyr(mainVideo, {
-        controls: ['play', 'progress', 'current-time', 'mute', 'volume'],
-        hideControls: true
+      // Configuración del reproductor principal
+      mainVideo.ready(() => {
+        mainVideo.controlBar.hide(); // Ocultar la barra de controles inicialmente
       });
 
       // Evento de click en los videos de la lista
-      listVideo.forEach(video => {
-        video.addEventListener('click', function() {
-          const src = this.getAttribute('src');
-          const title = this.nextElementSibling.textContent;
+      listVideos.forEach((video, index) => {
+        const videoPlayer = videojs(video);
+        videoPlayer.ready(() => {
+          videoPlayer.controlBar.hide(); // Ocultar la barra de controles inicialmente
+        });
 
-          // Reinicia el tiempo de reproducción a cero y carga el nuevo video
-          mainVideo.src = src;
-          mainVideo.currentTime = 0;
+        video.addEventListener('click', () => {
+          const src = video.getAttribute('src');
+          const title = video.nextElementSibling.textContent;
+
+          // Reiniciar el tiempo de reproducción a cero y cargar el nuevo video
+          mainVideo.src(src);
+          mainVideo.currentTime(0);
           mainVideo.play();
 
-          // Función para recargar el video desde la nueva posición después de que se adelanta o retrocede
-          const reloadVideo = () => {
-            mainVideo.currentTime = mainVideo.currentTime; // Forzar la recarga del video desde la nueva posición
-          };
-
-          // Evento 'seeked' para detectar cuando se adelanta o retrocede el video
-          mainVideo.addEventListener('seeked', reloadVideo);
-
-          // Eliminar el evento 'seeked' después de cargar el video desde la nueva posición
-          mainVideo.addEventListener('loadedmetadata', function loadedMetadataHandler() {
-            mainVideo.removeEventListener('seeked', reloadVideo);
-            mainVideo.removeEventListener('loadedmetadata', loadedMetadataHandler);
+          // Función para recargar el video desde la nueva posición al adelantar o retroceder
+          mainVideo.on('seeked', () => {
+            const currentTime = mainVideo.currentTime();
+            videoPlayer.src(src);
+            videoPlayer.currentTime(currentTime);
+            videoPlayer.play();
           });
 
-          // Actualizar el título del video principal
-          document.querySelector('.title').textContent = title;
+          // Cambiar el título del video principal
+          document.querySelector('.main-video .title').textContent = title;
+
+          // Cambiar la clase activa en la lista de videos
+          document.querySelector('.video-list .vid.active').classList.remove('active');
+          video.parentElement.classList.add('active');
         });
+      });
+
+      // Mostrar/ocultar la barra de controles del video principal al hacer clic en el área de reproducción
+      mainVideo.on('click', () => {
+        if (mainVideo.controlBar.hidden()) {
+          mainVideo.controlBar.show();
+        } else {
+          mainVideo.controlBar.hide();
+        }
+      });
+
+      // Mostrar/ocultar la barra de controles del video principal al hacer clic en el botón de reproducción
+      const playButton = document.querySelector('.vjs-play-control');
+      playButton.addEventListener('click', () => {
+        if (mainVideo.controlBar.hidden()) {
+          mainVideo.controlBar.show();
+        } else {
+          mainVideo.controlBar.hide();
+        }
+      });
+
+      // Mostrar/ocultar el botón de scroll al hacer scroll
+      const scrollButton = document.querySelector('#scroll-button');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          scrollButton.style.display = 'block';
+        } else {
+          scrollButton.style.display = 'none';
+        }
+      });
+
+      // Hacer scroll hacia la lista de videos al hacer clic en el botón de scroll
+      scrollButton.addEventListener('click', () => {
+        const videoList = document.querySelector('.video-list');
+        videoList.scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
