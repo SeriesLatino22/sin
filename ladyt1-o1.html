@@ -7,8 +7,6 @@
 <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
 <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxx" crossorigin="anonymous" />
-
-<!-- Estilos personalizados -->
 <style type="text/css">
 *{margin:0;padding:0;box-sizing:border-box;text-transform:capitalize;}
 body{background:#000;}
@@ -62,70 +60,83 @@ color:#333;font-size:17px;}
   width: 24px;
   height: 24px;
 }
+
+
 </style>
 </head>
 <body>
 
-<body>
-  <div id="wb_LayoutGrid1">
-    <div id="LayoutGrid1">
-      <div class="col-1">
-        <div id="Html1" style="display:inline-block;width:100%;height:426px;z-index:0">
-          <div class="container">
-            <div class="main-video">
-              <video id="mainVideo" class="video-js" controls autoplay muted playsinline>
-                <source src="" type="application/x-mpegURL">
-              </video>
-              <h3 class="title">Capitulo 1x1</h3>
-            </div>
-            <div class="video-list">
-              <div class="vid active">
-                <video class="video-js" controls playsinline>
-                  <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=447748df7249d68372089d3f8c2c750b73b7235b&amp;st.mq=5&amp;st.mvid=5467125451269&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=4040" type="application/x-mpegURL">
-                </video>
-                <h3 class="title">Capitulo 1</h3>
-              </div>
-              <div class="vid active">
-                <video class="video-js" controls playsinline>
-                  <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=2fa655a1ed5107abef4db7167c4c1a1ad6f15277&amp;st.mq=5&amp;st.mvid=5467125778949&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756069810&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=9416" type="application/x-mpegURL">
-                </video>
-                <h3 class="title">Capitulo 2</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="scroll-button" id="scroll-button">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1DCheRLhxDOU0Sie97vrJsc51LTLNJxKz-MhA-jVCRI_d8jsofkIenFjSDW7D8d5EvKU&usqp=CAU" alt="Flecha hacia abajo">
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.plyr.io/3.6.12/plyr.min.js"></script>
-  <script src="https://cdn.plyr.io/3.6.12/plyr.polyfilled.js"></script>
-  <script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
-  <script>
-    const mainVideo = videojs('mainVideo');
+<div class="container">
+<div class="main-video">
+<div class="video">
+<video class='js-player' poster="https://media.discordapp.net/attachments/1000156875129634857/1002018284067102811/dcPc6esbABSljhnPuYxw7qJzhzq.jpg" controls muted autoplay> 
+<source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" type="application/x-mpegURL">
+</video>
+<!--<video src="http://vods.tuxchannel.tv:80/series/dragon%20ball/episodio%20001.mkv" poster="https://media.discordapp.net/attachments/1000156875129634857/1002018284067102811/dcPc6esbABSljhnPuYxw7qJzhzq.jpg" controls muted autoplay></video>-->
+<h3 class="title">Capitulo 1x1</h3></div></div>
+<div class="video-list">
+<div class="vid active"> 
+<video src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=447748df7249d68372089d3f8c2c750b73b7235b&amp;st.mq=5&amp;st.mvid=5467125451269&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=4040" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002017994488156201/yXggMemopUDHwPgmi6X9Wh2BQra.jpg"></video>
+<h3 class="title">Capitulo 1</h3></div>
+<div class="vid active"> 
+<video src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=2fa655a1ed5107abef4db7167c4c1a1ad6f15277&amp;st.mq=5&amp;st.mvid=5467125778949&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756069810&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=9416" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002017994488156201/yXggMemopUDHwPgmi6X9Wh2BQra.jpg"></video>
+<h3 class="title">Capitulo 2</h3></div>
 
-    // Evento que se dispara cuando se cambia el video de la lista
-    function changeVideo(src, title) {
-      mainVideo.src({
-        src: src,
-        type: 'application/x-mpegURL'
-      });
-      mainVideo.poster('https://media.discordapp.net/attachments/1000156875129634857/1002018284067102811/dcPc6esbABSljhnPuYxw7qJzhzq.jpg');
-      document.querySelector('.main-video .title').innerHTML = title;
+
+</div></div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script src="https://cdn.plyr.io/3.6.12/plyr.min.js"></script>
+<script>
+
+  // Obtener referencias a los elementos del reproductor de video
+  const mainVideo = document.querySelector('.main-video video');
+  const listVideo = document.querySelectorAll('.video-list .vid');
+
+  // Función para guardar la posición actual del video en el almacenamiento local
+  function saveCurrentTime() {
+    localStorage.setItem('videoCurrentTime', mainVideo.currentTime);
+  }
+
+  // Función para cargar la posición guardada del video desde el almacenamiento local
+  function loadCurrentTime() {
+    const currentTime = localStorage.getItem('videoCurrentTime');
+    if (currentTime) {
+      mainVideo.currentTime = parseFloat(currentTime);
     }
+  }
 
-    // Evento de clic en los videos de la lista
-    const listVideos = document.querySelectorAll('.video-list .vid');
-    listVideos.forEach(video => {
-      video.addEventListener('click', function() {
-        listVideos.forEach(vid => vid.classList.remove('active'));
-        this.classList.add('active');
-        const src = this.querySelector('video').getAttribute('src');
-        const text = this.querySelector('.title').innerHTML;
-        changeVideo(src, text);
-      });
+  // Evento que se dispara cuando el video se pausa
+  mainVideo.addEventListener('pause', saveCurrentTime);
+
+  // Evento que se dispara cuando el video termina de cargar
+  mainVideo.addEventListener('loadedmetadata', function() {
+    loadCurrentTime();
+    mainVideo.play(); // Agregar reproducción automática después de cargar la posición
+  });
+
+  // Evento de click en los videos de la lista
+  listVideo.forEach(video => {
+    video.addEventListener('click', function() {
+      listVideo.forEach(vid => vid.classList.remove('active'));
+      this.classList.add('active');
+      const src = this.querySelector('video').getAttribute('src');
+      mainVideo.src = src;
+      mainVideo.load(); // Agregar carga manual del video al cambiar de video en la lista
+      const text = this.querySelector('.title').innerHTML;
+      document.querySelector('.main-video .title').innerHTML = text;
     });
-  </script>
+  });
+
+  // Inicializar el reproductor Plyr después de cargar el video
+  mainVideo.addEventListener('loadeddata', function() {
+    const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
+  });
+
+</script>
 </body>
 </html>
