@@ -1,138 +1,50 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Video Playlist MOD Xavier Suarez</title>
-  <!-- Responsive viewport -->
-  <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxx" crossorigin="anonymous" />
   <link href="https://vjs.zencdn.net/7.14.3/video-js.min.css" rel="stylesheet">
-  <style type="text/css">
-*{margin:0;padding:0;box-sizing:border-box;text-transform:capitalize;}
-body{background:#000;}
-.heading{color:#444;font-size:40px;text-align:center;padding:10px;}
-.container{display:grid;grid-template-columns:2fr 1fr;gap:15px;align-items:flex-start;padding:5px 5%;}
-.container .main-video{background:#151515;border-radius:5px;padding:10px;position: sticky; top: 0;}
-.container .main-video video{width:100%;border-radius:5px;}
-.container .main-video .title{
-color:#fff;font-size:23px;padding-top:15px;padding-bottom:15px;}
-.container .video-list{
-background:#151515;border-radius:5px;height:582px;overflow-y:scroll;}
-.container .video-list::-webkit-scrollbar{
-width:7px;}
-.container .video-list::-webkit-scrollbar-track{
-background:#ccc;border-radius:50px;}
-.container .video-list::-webkit-scrollbar-thumb{
-background:#666;border-radius:50px;}
-.container .video-list .vid video{
-width:100px;border-radius:5px;}
-.container .video-list .vid{
-background:#f7f7f7;display:flex;align-items:center;gap:15px;border-radius:5px;margin:10px;padding:10px;border:1px solid rgba(0,0,0,.1);cursor:pointer;}
-.container .video-list .vid:hover{
-background:#eee;}
-.container .video-list .vid.active{
-background:#2980b9;}
-.container .video-list .vid.active .title{
-color:#fff;}
-.container .video-list .vid .title{
-color:#333;font-size:17px;}
-@media (max-width: 991px){
-.container{grid-template-columns:1.5fr 1fr;padding:10px;}}
-@media (max-width: 768px){
-.container{grid-template-columns:1fr;}}
-
-.scroll-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 40px;
-  height: 40px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.scroll-button img {
-  width: 24px;
-  height: 24px;
-}
-
-
-</style>
 </head>
 <body>
-  <div class="scroll-button" id="scroll-button">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1DCheRLhxDOU0Sie97vrJsc51LTLNJxKz-MhA-jVCRI_d8jsofkIenFjSDW7D8d5EvKU&usqp=CAU" alt="Flecha hacia abajo">
+  <div class="main-video">
+    <video id="main-video" class="video-js vjs-default-skin" controls muted preload="auto" width="640" height="360" poster="https://media.discordapp.net/attachments/1000156875129634857/1002017889257490432/D6v11ANVwAAIh2V.jpg">
+      <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=c43ddabfbfd48914d5fd6fde7a0f14c947fde9a4&amp;st.mq=1&amp;st.mvid=5452283288853&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7981" type="application/x-mpegURL">
+    </video>
+    <h3 class="title">Capitulo 1x1</h3>
   </div>
-  <div class="container">
-    <div class="main-video">
-      <div class="video">
-        <video id="main-video" class="video-js vjs-default-skin vjs-big-play-centered" poster="https://media.discordapp.net/attachments/1000156875129634857/1002018284067102811/dcPc6esbABSljhnPuYxw7qJzhzq.jpg" controls autoplay muted>
-          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=cf87a71b53afe0830f919678626f4b64e97ed2fb&amp;st.mq=2&amp;st.mvid=5296999959293&amp;st.ip=186.30.7.42&amp;st.dla=on&amp;st.exp=1687651883376&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7373" type="application/x-mpegURL">
-        </video>
-        <h3 class="title">Capitulo 1x1</h3>
-      </div>
+
+  <div class="video-list">
+    <div class="vid active">
+      <video class="video-js vjs-default-skin" controls muted preload="auto" width="160" height="90" poster="https://media.discordapp.net/attachments/1000156875129634857/1002017946633706490/cWAbTl8QxejjHK5k4o0j2eXmUln.jpg">
+        <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=d11c832d4ea4d49b6abf0d6b0c334ff10025a3a5&amp;st.mq=1&amp;st.mvid=5452283165597&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7981" type="application/x-mpegURL">
+      </video>
+      <h3>Capitulo 1x1</h3>
     </div>
-    <div class="video-list">
-      <div class="vid active">
-        <video class="video-js vjs-default-skin" id="video-1" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002017994488156201/yXggMemopUDHwPgmi6X9Wh2BQra.jpg">
-          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=447748df7249d68372089d3f8c2c750b73b7235b&amp;st.mq=5&amp;st.mvid=5467125451269&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7981" type="application/x-mpegURL">
-        </video>
-        <h3>Capitulo 1x2</h3>
-      </div>
-      <div class="vid">
-        <video class="video-js vjs-default-skin" id="video-2" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002018022783261691/Z3n0p12GlBFCW1QR8a2NjYri1b.jpg">
-          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=44b32e7790d7e37fb7856690b12d503d93ab6ed9&amp;st.mq=2&amp;st.mvid=5452283091933&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7981" type="application/x-mpegURL">
-        </video>
-        <h3>Capitulo 1x3</h3>
-      </div>
-      <div class="vid">
-        <video class="video-js vjs-default-skin" id="video-3" muted poster="https://media.discordapp.net/attachments/1000156875129634857/1002018116322639873/IZdajxQWJk6iwBlE9RlLWURUrb0.jpg">
-          <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=204fe6f3efb4225c29c3f4a3bc9e42e9eac4a61e&amp;st.mq=2&amp;st.mvid=5236305547389&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7981" type="application/x-mpegURL">
-        </video>
-        <h3>Capitulo 1x4</h3>
-      </div>
+    <div class="vid">
+      <video class="video-js vjs-default-skin" controls muted preload="auto" width="160" height="90" poster="https://media.discordapp.net/attachments/1000156875129634857/1002018022783261691/Z3n0p12GlBFCW1QR8a2NjYri1b.jpg">
+        <source src="https://m.ok.ru/dk/video.m3u8?st.cmd=moviePlaybackRedirect&amp;st.sig=44b32e7790d7e37fb7856690b12d503d93ab6ed9&amp;st.mq=2&amp;st.mvid=5452283091933&amp;st.ip=186.155.103.151&amp;st.dla=off&amp;st.exp=1687756017884&amp;st.hls=on&amp;_prevCmd=movieLayer&amp;tkn=7981" type="application/x-mpegURL">
+      </video>
+      <h3>Capitulo 1x2</h3>
     </div>
   </div>
 
   <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const mainVideo = videojs('main-video');
-      const listVideos = document.querySelectorAll('.video-list .vid video');
-
       // Configuración del reproductor principal
-      mainVideo.ready(() => {
-        mainVideo.controlBar.hide(); // Ocultar la barra de controles inicialmente
-      });
+      const mainVideo = videojs('main-video');
 
-      // Evento de click en los videos de la lista
-      listVideos.forEach((video, index) => {
-        const videoPlayer = videojs(video);
-        videoPlayer.ready(() => {
-          videoPlayer.controlBar.hide(); // Ocultar la barra de controles inicialmente
-        });
-
+      // Reproducir el video de la lista al hacer clic en él
+      const videos = document.querySelectorAll('.video-list .vid video');
+      videos.forEach(video => {
         video.addEventListener('click', () => {
-          const src = video.getAttribute('src');
+          const src = video.querySelector('source').src;
           const title = video.nextElementSibling.textContent;
 
-          // Reiniciar el tiempo de reproducción a cero y cargar el nuevo video
-          mainVideo.src(src);
-          mainVideo.currentTime(0);
-          mainVideo.play();
-
-          // Función para recargar el video desde la nueva posición al adelantar o retroceder
+          // Cargar el video desde la nueva posición al adelantar o retroceder
           mainVideo.on('seeked', () => {
             const currentTime = mainVideo.currentTime();
-            videoPlayer.src(src);
-            videoPlayer.currentTime(currentTime);
-            videoPlayer.play();
+            mainVideo.src(src);
+            mainVideo.currentTime(currentTime);
+            mainVideo.play();
           });
 
           // Cambiar el título del video principal
