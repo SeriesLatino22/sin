@@ -1,37 +1,29 @@
 
 
    
+    
+   
     <!DOCTYPE html>
 <html>
 <head>
    <meta name="referrer" content="never" />
     <title>Reproductor de video</title>
-    <style>
-        #videoPlayer {
-            width: 640px;
-            height: 360px;
-        }
-    </style>
 </head>
 <body>
-    <video id="videoPlayer" controls>
-        <source src="https://ok.ru/videoembed/4687178041967" type="video/mp4">
-        Tu navegador no admite la reproducción de videos HTML5.
-    </video>
+    <iframe src="https://ok.ru/videoembed/4687178041967" width="640" height="360" frameborder="0" allowfullscreen id="videoPlayer"></iframe>
 
     <script>
-        var video = document.getElementById('videoPlayer');
+        var videoPlayer = document.getElementById('videoPlayer');
 
         // Función para adelantar el video
         function adelantar() {
-            video.currentTime += 10; // Avanza 10 segundos
+            videoPlayer.contentWindow.postMessage('seekForward', '*');
         }
 
         // Función para retroceder el video
         function retroceder() {
-            video.currentTime -= 10; // Retrocede 10 segundos
+            videoPlayer.contentWindow.postMessage('seekBackward', '*');
         }
     </script>
 </body>
 </html>
-
