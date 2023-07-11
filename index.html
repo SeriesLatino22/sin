@@ -90,8 +90,14 @@ window.addEventListener('load', () => {
 
 </body>
 
-<!DOCTYPE html>
 
+      
+      <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscador con Icono de Cerrar</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     .container {
@@ -102,12 +108,13 @@ window.addEventListener('load', () => {
     }
 
     .search-box {
-      padding: 20px; /* Aumenta el padding para mayor tamaño en dispositivos grandes */
+      padding: 33px 20px 20px 23px; /* Ajusta el padding top a 33px y ajusta el padding izquierdo */
       border-radius: 4px;
       position: fixed;
       top: 20px;
-      left: 20px;
+      left: 10px; /* Mueve el buscador más a la izquierda */
       z-index: 9999;
+      font-size: 18px; /* Aumenta el tamaño del texto */
     }
 
     .show-search .search-bar,
@@ -123,21 +130,22 @@ window.addEventListener('load', () => {
 
     #filtro {
       width: 0;
-      padding: 10px;
+      padding: 8px; /* Ajusta el tamaño del textbox */
       transition: width 0.3s ease-in-out;
       opacity: 0;
       pointer-events: none;
       border: none;
       background: transparent;
       color: transparent;
+      font-size: 16px; /* Ajusta el tamaño del texto */
     }
 
     #buscar {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 45px; /* Aumenta el tamaño del botón */
+      height: 45px;
       background-color: transparent;
       color: #4CAF50;
       border: none;
@@ -150,14 +158,14 @@ window.addEventListener('load', () => {
     }
 
     #buscar i {
-      font-size: 18px;
+      font-size: 26px; /* Aumenta el tamaño de los iconos */
       transition: all 0.3s ease-in-out;
     }
 
     #buscar .icono-cerrar {
       display: none;
-      width: 16px;
-      height: 16px;
+      width: 26px; /* Aumenta el tamaño del icono de cerrar */
+      height: 26px;
     }
 
     .show-search #filtro {
@@ -186,6 +194,7 @@ window.addEventListener('load', () => {
       margin-top: 10px;
       font-weight: bold;
       display: none;
+      font-size: 18px; /* Aumenta el tamaño del texto */
     }
 
     #resultado-container {
@@ -196,15 +205,15 @@ window.addEventListener('load', () => {
       display: flex;
       align-items: center;
       background-color: #f1f1f1;
-      padding: 10px;
+      padding: 25px; /* Aumenta el padding para hacer los resultados más grandes */
       border-radius: 4px;
       margin-bottom: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .resultado img {
-      width: 40px;
-      height: 40px;
+      width: 70px; /* Aumenta el tamaño de la imagen */
+      height: 70px;
       object-fit: cover;
       border-radius: 50%;
       margin-right: 10px;
@@ -214,6 +223,7 @@ window.addEventListener('load', () => {
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      font-size: 18px; /* Aumenta el tamaño del texto */
     }
 
     .resultado a:hover {
@@ -246,7 +256,7 @@ window.addEventListener('load', () => {
 
     @media (min-width: 501px) {
       .search-box {
-        padding: 30px; /* Ajusta el padding para mayor tamaño en dispositivos no móviles */
+        padding: 33px 20px 20px 23px; /* Ajusta el padding en dispositivos no móviles */
       }
     }
   </style>
@@ -258,8 +268,8 @@ window.addEventListener('load', () => {
       <div class="search-bar">
         <input type="text" id="filtro" placeholder="Buscar...">
         <button id="buscar">
-          <i class="fas fa-search"></i>
-          <img src="ruta_imagen_cerrar.png" class="icono-cerrar" alt="Cerrar">
+          <i class="fas fa-search" style="font-size: 30px;"></i> <!-- Aumenta el tamaño del icono de buscar -->
+          <img src="ruta_imagen_cerrar.png" class="icono-cerrar" alt="Cerrar" style="width: 30px; height: 30px;"> <!-- Aumenta el tamaño del icono de cerrar -->
           <span class="sr-only">Cerrar</span>
         </button>
       </div>
@@ -358,6 +368,10 @@ window.addEventListener('load', () => {
       document.getElementById('buscar').style.display = 'flex';
     });
   </script>
+</body>
+</html>
+
+
 </body>
 </html>
 
